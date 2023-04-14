@@ -1,0 +1,32 @@
+<div class="container-fluid mt-5">
+    <div *ngIf="productList">
+        <div *ngFor="let prod of productList">
+        <div class="col-md-12">       
+                <div class="card m-3" style="width: 18rem;">
+                   <a   routerLink="/item/{{prod.id}}" ><img class="card-img-top" src="{{prod.url}}" style="width:250px; height: 200px;"  alt="Card image cap"></a> 
+                    <div class="card-body">
+                      <h5 class="card-title">{{prod.name}}</h5>
+                      <p class="card-text">{{prod.discription| slice:0:70}}</p>
+                      <div class="quentity-group">
+                        <button (click)="decrease()" class="m-2 btn btn-primary" style="width: 10%;">-</button>
+                        <input  type="text" value="{{productQuentity}}" style="width: 10%; text-align: center;">
+                        <button  (click)="increase()" class="m-2 btn btn-primary" style="width: 10%;">+</button>
+                    </div>
+
+                      <a  (click)="removeCartItem(prod.id)" ><button type="button" style="width: 30%;" class="btn btn-sm btn-outline-danger">Remove</button></a> &nbsp;
+                      <a  (click)="productDetail(prod.id)" ><button type="button" style="width: 30%;" class="btn btn-sm btn-outline-success">Buy </button></a>
+                    </div>
+                  </div>
+                </div>
+        </div>
+
+    </div>
+
+
+<div *ngIf="productList.length==0">
+<h1>Cart Is Empty ....</h1>
+</div>
+
+
+  
+</div>

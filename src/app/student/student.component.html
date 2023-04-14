@@ -1,0 +1,41 @@
+
+<div class="container-fluid">
+<div class="form-wrrap">
+<span style="color:green">{{addProductMessage}}</span>
+
+    <h3>Add New Listing</h3>
+    <form [formGroup]="productForm" >
+
+        <input type="text" class="form-control mt-3" placeholder="Enter  name" formControlName="name" />
+        <div style="color: red;"
+            *ngIf="this.submited &&this.productForm.get('name')?.errors||this.productForm.get('name')?.touched">
+            <span style="color: red;" *ngIf="this.productForm.get('name')?.errors?.['required'] ">fild
+                required</span>
+          
+        </div>
+
+         <input type="text" placeholder="Enter Price " formControlName="Price" class="form-control mt-3" />
+        <div style="color: red;"
+            *ngIf="this.submited &&this.productForm.get('Price')?.errors||this.productForm.get('Price')?.touched">
+            <span style="color: red;" *ngIf="this.productForm.get('Price')?.errors?.['required'] ">fild
+                required</span>
+        </div>
+
+        <input type="text" class="form-control mt-3" placeholder="Enter discription" formControlName="discription" />
+        <div style="color: red;"
+            *ngIf="this.submited &&this.productForm.get('discription')?.errors||this.productForm.get('discription')?.touched">
+            <span style="color: red;" *ngIf="this.productForm.get('discription')?.errors?.['required'] ">fild
+                required</span>
+        </div>
+        <input type="text" class="form-control mt-3" placeholder="Enter url" formControlName="url" />
+        <div style="color: red;"
+            *ngIf="this.submited &&this.productForm.get('url')?.errors||this.productForm.get('url')?.touched">
+            <span style="color: red;" *ngIf="this.productForm.get('url')?.errors?.['required'] ">fild
+                required</span>
+        </div>
+       
+        <input *ngIf="btnText" (click)="addProduct()"     class="form-control mt-5 button btn btn-primary" type="submit" value="Add " />
+        <input     *ngIf="!btnText" (click)="updateProduct()"   class="form-control mt-5 button btn btn-primary" type="Edit" value="Update " />
+   
+    </form>
+</div>

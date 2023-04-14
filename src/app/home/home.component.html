@@ -1,0 +1,22 @@
+<div class="container-fluid mt-5">
+    <div class="row ">
+        <div *ngFor="let prod of productList">
+        <div class="col-md-12">       
+                <div class="card m-3" style="width: 18rem;">
+                  <a   routerLink="student/{{prod.id}}" >
+                  <img class="card-img-top" src="{{prod.url}}" style="width:250px; height: 200px;"  alt="Card image cap">
+                📝
+                </a>
+                    <div class="card-body">
+                      <h5 class="card-title">{{prod.name}}</h5>
+                      <h5 class="card-title"><span style="color: red; font-size: x-large;">₹{{prod.Price}}</span> </h5>
+                      <p class="card-text">{{prod.discription| slice:0:70}}</p>
+                      <a href="#" class="btn btn-primary" (click)="addtocart(prod)">Add To Cart</a>
+                    </div>
+                  </div>
+                </div>
+        </div>
+
+    </div>
+  
+</div>
